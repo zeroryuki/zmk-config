@@ -36,12 +36,12 @@
         };
 
         // TD(6): tap=RGB_TOG  double-tap=RGB next-effect
-        td6: td_rgb {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&rgb_ug RGB_TOG>, <&rgb_ug RGB_EFF>;
-        };
+        //td6: td_rgb {
+        //    compatible = "zmk,behavior-tap-dance";
+        //    #binding-cells = <0>;
+        //    tapping-term-ms = <200>;
+        //    bindings = <&rgb_ug RGB_TOG>, <&rgb_ug RGB_EFF>;
+        //};
 
         // TD(8): tap=-  double-tap=_
         td8: td_minus {
@@ -52,26 +52,26 @@
         };
 
         // ── Encoder sensor-rotate behaviors ───────────────────────
-        rgb_eff_enc: rgb_effect_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
-        };
-        rgb_hue_enc: rgb_hue_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
-        };
-        rgb_bri_enc: rgb_brightness_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
-        };
-        rgb_sat_enc: rgb_saturation_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
-        };
+        //rgb_eff_enc: rgb_effect_encoder {
+        //    compatible = "zmk,behavior-sensor-rotate";
+        //    #sensor-binding-cells = <0>;
+        //    bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
+        //};
+        //rgb_hue_enc: rgb_hue_encoder {
+        //    compatible = "zmk,behavior-sensor-rotate";
+        //    #sensor-binding-cells = <0>;
+        //    bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
+        //};
+        //rgb_bri_enc: rgb_brightness_encoder {
+        //    compatible = "zmk,behavior-sensor-rotate";
+        //    #sensor-binding-cells = <0>;
+        //    bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        //};
+        //rgb_sat_enc: rgb_saturation_encoder {
+        //    compatible = "zmk,behavior-sensor-rotate";
+        //    #sensor-binding-cells = <0>;
+        //    bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
+        //};
     };
 
     macros {
@@ -161,7 +161,7 @@
                 &kp CAPS          &kp LALT  &none         &none        &kp LS(LG(V)) &kp QMARK
                                                           &kp LSHFT   &none         &kp SPACE
                 // Right half — outer edge first
-                &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0  &kp F8    &td6
+                &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0  &kp F8    &none
                 &kp KP_N4  &kp KP_N5  &kp KP_N6  &none      &kp UP    &kp LC(LS(RIGHT))
                 &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp LEFT   &kp DOWN  &kp RIGHT
                                                   &kp RET    &kp LCTRL &kp RGUI
