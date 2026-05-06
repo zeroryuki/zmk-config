@@ -178,7 +178,7 @@
                 // Right half — outer edge first
                 &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp SQT
                 &kp MINUS  &kp LBKT  &kp RBKT  &none     &none     &none
-                &kp EQUAL  &kp BSLH  &kp FSLH  &none     &none     &none
+                &kp EQUAL  &kp BSLH  &kp FSLH  &none     &bt BT_SEL 1     &bt BT_SEL 0
                                                &kp RSHFT &trans    &trans
             >;
         };
