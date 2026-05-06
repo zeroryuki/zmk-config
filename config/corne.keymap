@@ -35,14 +35,6 @@
             bindings = <&kp LBKT>, <&m4>;
         };
 
-        // TD(6): tap=RGB_TOG  double-tap=RGB next-effect
-        //td6: td_rgb {
-        //    compatible = "zmk,behavior-tap-dance";
-        //    #binding-cells = <0>;
-        //    tapping-term-ms = <200>;
-        //    bindings = <&rgb_ug RGB_TOG>, <&rgb_ug RGB_EFF>;
-        //};
-
         // TD(8): tap=-  double-tap=_
         td8: td_minus {
             compatible = "zmk,behavior-tap-dance";
@@ -51,27 +43,6 @@
             bindings = <&kp MINUS>, <&kp UNDER>;
         };
 
-        // ── Encoder sensor-rotate behaviors ───────────────────────
-        //rgb_eff_enc: rgb_effect_encoder {
-        //    compatible = "zmk,behavior-sensor-rotate";
-        //    #sensor-binding-cells = <0>;
-        //    bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
-        //};
-        //rgb_hue_enc: rgb_hue_encoder {
-        //    compatible = "zmk,behavior-sensor-rotate";
-        //    #sensor-binding-cells = <0>;
-        //    bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
-        //};
-        //rgb_bri_enc: rgb_brightness_encoder {
-        //    compatible = "zmk,behavior-sensor-rotate";
-        //    #sensor-binding-cells = <0>;
-        //    bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
-        //};
-        //rgb_sat_enc: rgb_saturation_encoder {
-        //    compatible = "zmk,behavior-sensor-rotate";
-        //    #sensor-binding-cells = <0>;
-        //    bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
-        //};
     };
 
     macros {
@@ -178,7 +149,7 @@
                 // Right half — outer edge first
                 &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp SQT
                 &kp MINUS  &kp LBKT  &kp RBKT  &none     &none     &none
-                &kp EQUAL  &kp BSLH  &kp FSLH  &none     &bt BT_SEL 1     &bt BT_SEL 0
+                &kp EQUAL  &kp BSLH  &kp FSLH  &none     &none     &none
                                                &kp RSHFT &trans    &trans
             >;
         };
@@ -190,7 +161,7 @@
             bindings = <
                 // Left half
                 &bootloader &none  &none  &kp C_PREV           &kp C_PP             &kp C_NEXT
-                &none       &none  &none  &none                &none                &none
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_CLR  &none  &none  &none
                 &mo QWERTY  &none  &none  &kp LC(LA(LG(H)))    &kp LC(LA(LG(DOWN))) &kp LC(LA(LG(UP)))
                                          &none                &trans               &kp SPACE
                 // Right half — outer edge first
