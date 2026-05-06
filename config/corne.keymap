@@ -81,10 +81,10 @@
     combos {
         compatible = "zmk,combos";
         // MO(SYM) + SPACE held simultaneously → MO(MEDIA)
-        // Adjust key-positions to your board's left-thumb SYM and SPACE matrix indices
+        // Corne positions: 38 = left thumb SYM (LT2), 39 = right thumb SPACE (RT0)
         combo_media {
             timeout-ms = <50>;
-            key-positions = <34 35>;
+            key-positions = <38 39>;
             bindings = <&mo MEDIA>;
         };
     };
@@ -95,7 +95,6 @@
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         // Layer 0 — BASE  (Colemak-DH)
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        // Left                               Right (outer→inner)
         // ┌─────┬───┬───┬───┬───┬───┐  ┌───┬───┬───┬───┬───┬───┐
         // │ ESC │ Q │ W │ F │ P │ B │  │ J │ L │ U │ Y │;/:│-/_│
         // │ TAB │ A │ R │ S │ T │ G │  │ M │ N │ E │ I │ O │ENT│
@@ -105,16 +104,10 @@
         //               └───┴───┴───┘  └───┴───┴───┘
         base_layer {
             bindings = <
-                // Left half (21 keys: 6 + 6 + 6 + 3)
-                &kp ESC   &kp Q    &kp W    &kp F     &kp P     &kp B
-                &kp TAB   &kp A    &kp R    &kp S     &kp T     &kp G
-                &kp LALT  &kp X    &kp C    &kp D     &kp V     &kp Z
-                                            &kp LCTRL &mo NAV   &mo SYM
-                // Right half (21 keys: 6 + 6 + 6 + 3) — outer edge first
-                &kp J     &kp L    &kp U    &kp Y     &td0      &td8
-                &kp M     &kp N    &kp E    &kp I     &kp O     &kp RET
-                &kp K     &kp H    &kp COMMA &kp DOT  &kp FSLH  &kp BSPC
-                                            &kp SPACE &kp LSHFT &mo MEDIA
+                &kp ESC   &kp Q    &kp W    &kp F     &kp P     &kp B      &kp J     &kp L    &kp U     &kp Y    &td0      &td8
+                &kp TAB   &kp A    &kp R    &kp S     &kp T     &kp G      &kp M     &kp N    &kp E     &kp I    &kp O     &kp RET
+                &kp LALT  &kp X    &kp C    &kp D     &kp V     &kp Z      &kp K     &kp H    &kp COMMA &kp DOT  &kp FSLH  &kp BSPC
+                                            &kp LCTRL &mo NAV   &mo SYM    &kp SPACE &kp LSHFT &mo MEDIA
             >;
         };
 
@@ -123,16 +116,10 @@
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         nav_layer {
             bindings = <
-                // Left half
-                &td3              &none     &kp LG(W)     &kp RG(F)    &none         &none
-                &kp LC(LS(LEFT))  &kp LG(A) &kp LG(R)     &none        &kp RG(T)     &kp LS(LG(T))
-                &kp CAPS          &kp LALT  &none         &none        &kp LS(LG(V)) &kp QMARK
-                                                          &kp LSHFT   &none         &kp SPACE
-                // Right half — outer edge first
-                &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0  &kp F8    &none
-                &kp KP_N4  &kp KP_N5  &kp KP_N6  &none      &kp UP    &kp LC(LS(RIGHT))
-                &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp LEFT   &kp DOWN  &kp RIGHT
-                                                  &kp RET    &kp LCTRL &kp RGUI
+                &td3             &none     &kp LG(W)  &kp RG(F) &none         &none          &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0 &kp F8           &none
+                &kp LC(LS(LEFT)) &kp LG(A) &kp LG(R)  &none     &kp RG(T)     &kp LS(LG(T))  &kp KP_N4 &kp KP_N5 &kp KP_N6 &none     &kp UP           &kp LC(LS(RIGHT))
+                &kp CAPS         &kp LALT  &none      &none     &kp LS(LG(V)) &kp QMARK      &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp LEFT  &kp DOWN         &kp RIGHT
+                                                      &kp LSHFT &none         &kp SPACE      &kp RET   &kp LCTRL &kp RGUI
             >;
         };
 
@@ -141,16 +128,10 @@
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         sym_layer {
             bindings = <
-                // Left half
-                &kp TAB    &kp EXCL  &kp AT    &kp HASH  &kp DLLR      &kp PRCNT
-                &kp TILDE  &none     &none     &none     &kp LS(LG(T)) &none
-                &kp GRAVE  &kp RG(Z) &kp LG(C) &none     &kp LG(V)     &kp LSHFT
-                                               &kp LSHFT &trans         &trans
-                // Right half — outer edge first
-                &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp SQT
-                &kp MINUS  &kp LBKT  &kp RBKT  &none     &none     &none
-                &kp EQUAL  &kp BSLH  &kp FSLH  &none     &none     &none
-                                               &kp RSHFT &trans    &trans
+                &kp TAB    &kp EXCL  &kp AT    &kp HASH  &kp DLLR      &kp PRCNT   &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &kp SQT
+                &kp TILDE  &none     &none     &none     &kp LS(LG(T)) &none        &kp MINUS &kp LBKT &kp RBKT &none    &none    &none
+                &kp GRAVE  &kp RG(Z) &kp LG(C) &none     &kp LG(V)     &kp LSHFT   &kp EQUAL &kp BSLH &kp FSLH &none    &none    &none
+                                                          &kp LSHFT     &trans       &trans    &kp RSHFT &trans  &trans
             >;
         };
 
@@ -159,16 +140,10 @@
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         media_layer {
             bindings = <
-                // Left half
-                &bootloader &none  &none  &kp C_PREV           &kp C_PP             &kp C_NEXT
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_CLR  &none  &none  &none
-                &mo QWERTY  &none  &none  &kp LC(LA(LG(H)))    &kp LC(LA(LG(DOWN))) &kp LC(LA(LG(UP)))
-                                         &none                &trans               &kp SPACE
-                // Right half — outer edge first
-                &none  &none  &kp LC(N1)  &kp LC(N2)   &kp LC(N3)   &kp LC(N4)
-                &none  &none  &kp LC(N5)  &kp LC(N6)   &kp LC(N7)   &kp LC(N8)
-                &none  &none  &none  &none  &none  &none
-                                               &kp RET  &trans  &trans
+                &bootloader   &none         &none      &kp C_PREV        &kp C_PP             &kp C_NEXT         &none &none &kp LC(N1) &kp LC(N2) &kp LC(N3) &kp LC(N4)
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_CLR &none             &none                &none              &none &none &kp LC(N5) &kp LC(N6) &kp LC(N7) &kp LC(N8)
+                &mo QWERTY    &none         &none      &kp LC(LA(LG(H))) &kp LC(LA(LG(DOWN))) &kp LC(LA(LG(UP))) &none &none &none      &none      &none      &none
+                                                                          &none                &trans             &kp SPACE &kp RET &trans &trans
             >;
         };
 
@@ -177,16 +152,10 @@
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         numpad_layer {
             bindings = <
-                // Left half — all transparent
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans
-                // Right half — outer edge first
-                &trans  &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0
-                &trans  &trans  &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans
-                &trans  &trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans
-                                               &trans      &trans     &trans
+                &trans &trans &trans &trans &trans &trans   &trans &trans &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0
+                &trans &trans &trans &trans &trans &trans   &trans &trans &kp KP_N4 &kp KP_N5 &kp KP_N6 &trans
+                &trans &trans &trans &trans &trans &trans   &trans &trans &kp KP_N7 &kp KP_N8 &kp KP_N9 &trans
+                                           &trans &trans   &trans &trans &trans    &trans
             >;
         };
 
@@ -197,16 +166,10 @@
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         qwerty_layer {
             bindings = <
-                // Left half
-                &trans &kp Q &kp W &kp E &kp R &kp T
-                &trans &kp A &kp S &kp D &kp F &kp G
-                &trans &kp Z &kp X &kp C &kp V &kp B
-                                    &trans &trans &trans
-                // Right half — outer edge first
-                &kp Y   &kp U    &kp I     &kp O    &kp P    &trans
-                &kp H   &kp J    &kp K     &kp L    &kp SEMI &kp SQT
-                &kp N   &kp M    &kp COMMA &kp DOT  &kp FSLH &trans
-                                           &trans   &tog QWERTY  &trans
+                &trans &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U    &kp I     &kp O    &kp P    &trans
+                &trans &kp A &kp S &kp D &kp F &kp G   &kp H &kp J    &kp K     &kp L    &kp SEMI &kp SQT
+                &trans &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M    &kp COMMA &kp DOT  &kp FSLH &trans
+                                   &trans &trans &trans  &trans &tog QWERTY &trans
             >;
         };
     };
