@@ -145,9 +145,6 @@
                 &kp K     &kp H    &kp COMMA &kp DOT  &kp FSLH  &kp BSPC
                                             &kp SPACE &kp LSHFT &mo MEDIA
             >;
-            sensor-bindings = <
-                &rgb_eff_enc &rgb_hue_enc &rgb_bri_enc &rgb_sat_enc
-            >;
         };
 
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -165,9 +162,6 @@
                 &kp KP_N4  &kp KP_N5  &kp KP_N6  &none      &kp UP    &kp LC(LS(RIGHT))
                 &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp LEFT   &kp DOWN  &kp RIGHT
                                                   &kp RET    &kp LCTRL &kp RGUI
-            >;
-            sensor-bindings = <
-                &rgb_eff_enc &rgb_hue_enc &rgb_bri_enc &rgb_sat_enc
             >;
         };
 
@@ -187,9 +181,6 @@
                 &kp EQUAL  &kp BSLH  &kp FSLH  &none     &none     &none
                                                &kp RSHFT &trans    &trans
             >;
-            sensor-bindings = <
-                &rgb_eff_enc &rgb_hue_enc &rgb_bri_enc &rgb_sat_enc
-            >;
         };
 
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -207,9 +198,6 @@
                 &none  &none  &kp LC(N5)  &kp LC(N6)   &kp LC(N7)   &kp LC(N8)
                 &none  &none  &none  &none  &none  &none
                                                &kp RET  &trans  &trans
-            >;
-            sensor-bindings = <
-                &rgb_eff_enc &rgb_hue_enc &rgb_bri_enc &rgb_sat_enc
             >;
         };
 
